@@ -7,11 +7,16 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0.2.1');
-  api.addFiles('kraken.js');
+  api.addFiles('kraken.js', ['client', 'server']);
+   api.export('resizeKraken');
 });
 
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('kraken');
-  api.addFiles('kraken-tests.js');
+// Package.onTest(function(api) {
+//   api.use('tinytest');
+//   api.use('kraken');
+//   api.addFiles('kraken-tests.js');
+// });
+
+Npm.depends({
+	kraken: "0.2.1"
 });
