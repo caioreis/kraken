@@ -7,7 +7,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0.2.1');
-  api.addFiles('kraken.js', ['client', 'server']);
+  api.addFiles('kraken.js', ['server']);
    api.export('resizeKraken');
 });
 
