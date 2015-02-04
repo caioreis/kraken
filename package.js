@@ -2,7 +2,7 @@ Package.describe({
   name: 'moretti:kraken',
   summary: 'Meteor smart package to deal with Kraken.io',
   version: '0.3.1',
-  git: 'https://github.com/caioreis/kraken'
+  git: 'https://github.com/caioreis/kraken.git'
 });
 
 Package.onUse(function(api) {
