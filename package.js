@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'kraken',
-  summary: ' /* Fill me in! */ ',
-  version: '1.0.1',
-  git: ' /* Fill me in! */ '
+  name: 'moretti:kraken',
+  summary: 'Meteor smart package to deal with Kraken.io',
+  version: '0.3.1',
+  git: 'https://github.com/caioreis/kraken'
 });
 
 Package.onUse(function(api) {
