@@ -6,16 +6,53 @@ var sizes = {};
 
 Images = {
   setup: function (credentials) {
+
+    if (!credentials)
+      return false;
+
+    if (!credentials.s3 || !credentials.kraken) 
+      return false;
     
+    if (!credentials.s3.key || !credentials.s3.secret || !credentials.s3.bucket || !credentials.s3.region)
+      return false;
+
+    if (!credentials.kraken.key || !credentials.kraken.secret)
+      return false;
+
     s3credentials = credentials.s3;
 
     kraken = new Kraken({
       api_key: credentials.kraken.key,
       api_secret: credentials.kraken.secret
     });
+
+    return true;
   },
   setSizes: function (imageSizes) {
+
+    if (!imageSizes || _.keys(imageSizes).length === 0)
+      return false;
+
+    for (key in imageSizes) {
+      var approved = true;
+      var currentSize = imageSizes[key];
+
+      if (!currentSize.name || !_.isString(currentSize.name))
+        return false;
+
+      if (!currentSize.height || !_.isNumber(currentSize.height))
+        return false;
+
+      if (!currentSize.width || !_.isNumber(currentSize.width))
+        return false;
+
+      if (!currentSize.strategy || !_.isString(currentSize.strategy))
+        return false;
+    }
+
     sizes = imageSizes;
+
+    return true;
   },
   resize: function (url, path, version, callback) {
 

@@ -12,6 +12,11 @@ Package.onUse(function(api) {
   api.export('Images', ['server']);
 });
 
+Package.onTest(function(api) {
+  api.use('tinytest');
+  api.addFiles(['kraken.js', 'kraken-tests.js'], ['server']);
+});
+
 Npm.depends({
 	kraken: "0.2.1"
 });
