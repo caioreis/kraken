@@ -85,6 +85,20 @@ Images = {
       }
       callback(data);
     });
+  },
+  upload: function (file, callback) {
+    
+    var opts = {
+      file: file,
+      wait: true
+    };
+
+    kraken.upload(opts, function(data) {
+      if (!data.success) {
+        console.log(data);
+      }
+      callback(data);
+    });
   }
 }
 
